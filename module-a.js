@@ -4,20 +4,29 @@
 
 console.log("soc una pute")
 
+// let = functionName = parameter => WhatDoIHaveToReturn
+//Arrow doesnt redefine
 
-var x = 2;
-var y = 3;
-// ES5
-var x = function m(x, y) {
-    return x * y;
+class Person {
+    constructor(name) {
+        this.name = name
+    }
 
-}
-console.log(x)
 
-function m()
+    printNameArrow() {
+        setTimeout(() => {
+            console.log('Arrow ' + this.name)
+        }, 100)
+    }
 
-var xx = 2;
-var yy = 3;
-// ES6
-const xxx = (xx, yy) => xx * yy;
-console.log(xxx)
+    printNameFunction() {
+        setTimeout(function() {
+            console.log('Function: ' + this.name)
+        }, 100)
+    }
+} //Person
+
+let person = new Person('Bob')
+person.printNameArrow()
+person.printNameFunction()
+console.log(this.name)
